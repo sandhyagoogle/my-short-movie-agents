@@ -1,0 +1,56 @@
+# Copyright 2025 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+import logging
+
+# Import the Google Agent Development Kit (ADK) Agent class
+from google.adk.agents import Agent
+
+# Import helper to load system instructions
+from .utils.utils import load_prompt_from_file
+
+# Setup logging
+logger = logging.getLogger(__name__)
+
+# ---------------------------------------------------------
+# Configuration and Parameters
+# ---------------------------------------------------------
+# Using gemini-2.5-flash for screenplay generation
+MODEL = "gemini-2.5-flash"
+DESCRIPTION = "Agent responsible for writing a screenplay based on a story"
+
+# Initialize Screenplay Agent variable
+screenplay_agent = None
+
+try:
+    # ---------------------------------------------------------
+    # Screenplay Agent Initialization
+    # ---------------------------------------------------------
+    # We construct the screenplay agent, passing the LLM model to use,
+    # descriptive prompt, system instructions (loaded from screenplay_agent.txt),
+    # and designating 'screenplay' as the output key in the execution state.
+    screenplay_agent = Agent(
+        model=MODEL,
+        name="screenplay_agent",
+        description=(DESCRIPTION),
+        instruction=load_prompt_from_file("screenplay_agent.txt"),
+        output_key="screenplay",
+    )
+    logger.info(
+        f"✅ Agent '{screenplay_agent.name}' created using model '{MODEL}'."
+    )
+except Exception as e:
+    logger.error(
+        f"❌ Could not create Screenplay agent. Check API Key ({MODEL}). Error: {e}"
+    )

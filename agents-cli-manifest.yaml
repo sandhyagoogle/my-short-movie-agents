@@ -1,0 +1,13 @@
+name: "my-short-movie-agents"
+acli_version: "1.0.0"
+agent_directory: "short_movie_agents"
+region: "us-east1"
+base_template: "remote_5725177514263558951"
+generated_at: "2026-07-02T22:10:09.248840+00:00"
+language: "python"
+create_params:
+  deployment_target: "agent_runtime"
+  session_type: "none"
+  cicd_runner: "skip"
+  is_a2a: true
+  agent_guidance_filename: "GEMINI.md"
