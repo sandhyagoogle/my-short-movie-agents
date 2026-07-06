@@ -28,7 +28,7 @@ backend:
 
 # Launch local development server with hot-reload
 local-backend:
-	uv run uvicorn app.server:app --host 0.0.0.0 --port 8000 --reload
+	uv run uvicorn short_movie_agents.server:app --host 0.0.0.0 --port 8000 --reload
 
 # Run unit and integration tests
 test:

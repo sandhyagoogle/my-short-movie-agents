@@ -21,9 +21,9 @@ from google.cloud import logging as google_cloud_logging
 from opentelemetry import trace
 from opentelemetry.sdk.trace import TracerProvider, export
 
-from app.utils.gcs import create_bucket_if_not_exists
-from app.utils.tracing import CloudTraceLoggingSpanExporter
-from app.utils.typing import Feedback
+from short_movie_agents.utils.gcs import create_bucket_if_not_exists
+from short_movie_agents.utils.tracing import CloudTraceLoggingSpanExporter
+from short_movie_agents.utils.typing import Feedback
 
 _, project_id = google.auth.default()
 logging_client = google_cloud_logging.Client()

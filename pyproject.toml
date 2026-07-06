@@ -42,7 +42,7 @@ dev = [
 example_question = "Create a short campfire story about a brave knight"
 
 [tool.agent-starter-pack.settings]
-agent_directory = "app"
+agent_directory = "short_movie_agents"
 
 [tool.codespell]
 ignore-words-list = "rouge"
@@ -52,7 +52,7 @@ ignore-words-list = "rouge"
 extend = "../../../pyproject.toml"
 
 [tool.ruff.lint.isort]
-known-first-party = ["app"]
+known-first-party = ["short_movie_agents"]
 
 [tool.mypy]
 disallow_untyped_calls = true
@@ -76,7 +76,7 @@ pythonpath = "."
 asyncio_default_fixture_loop_scope = "function"
 
 [tool.hatch.build.targets.wheel]
-packages = ["app"]
+packages = ["short_movie_agents"]
 
 [build-system]
 requires = ["hatchling"]

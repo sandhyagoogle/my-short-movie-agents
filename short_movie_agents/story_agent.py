@@ -15,7 +15,7 @@
 import logging
 
 # Import prompt loading utility
-from app.utils.utils import load_prompt_from_file
+from short_movie_agents.utils.utils import load_prompt_from_file
 
 # Import the Google Agent Development Kit (ADK) Agent class
 try:
